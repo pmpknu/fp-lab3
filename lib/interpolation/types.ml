@@ -1,0 +1,3 @@
+type algorithm =
+  | Linear
+  | Lagrange
