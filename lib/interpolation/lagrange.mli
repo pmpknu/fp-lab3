@@ -1,0 +1,1 @@
+val interpolate: (float * float) list -> float -> float
