@@ -1,7 +1,7 @@
 (library
  (name interpolation)
  (libraries core)
- (modules)
+ (modules utils linear)
  (inline_tests)
  (preprocess
   (pps ppx_inline_test ppx_expect ppx_deriving.show ppx_deriving.ord)))
