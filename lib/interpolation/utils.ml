@@ -1,0 +1,2 @@
+type point = float * float
+
