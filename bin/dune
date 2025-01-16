@@ -1,4 +1,4 @@
 (executable
  (public_name fp_lab3)
  (name main)
- (libraries core interpolation io))
+ (libraries core interpolation))
