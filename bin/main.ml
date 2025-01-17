@@ -1,3 +1,3 @@
 open Core
-let () =
-  printf "Hello, world!\n"
+
+let () = printf "Hello, world!\n"

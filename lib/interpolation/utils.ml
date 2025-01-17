@@ -1,11 +1,11 @@
 type point = float * float
 
-let generate_x_range (step : float) (start : point) (target : point) : float list =
-  let (start_x, _) = start in
-  let (target_x, _) = target in
+let generate_x_range (step : float) (start : point) (target : point) :
+    float list =
+  let start_x, _ = start in
+  let target_x, _ = target in
   let rec aux x acc =
-    if x > target_x +. step then acc
-    else aux (x +. step) (x :: acc)
+    if x > target_x +. step then acc else aux (x +. step) (x :: acc)
   in
   List.rev (aux start_x [])
 
