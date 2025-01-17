@@ -4,8 +4,7 @@ let string_of_points (points : point list) : string =
   let header = Printf.sprintf "%-10s | %-10s" "x" "y" in
   let separator = String.make (String.length header) '-' in
   let rows =
-    points
-    |> List.map (fun (x, y) -> Printf.sprintf "%-10.4f | %-10.4f" x y)
+    points |> List.map (fun (x, y) -> Printf.sprintf "%-10.4f | %-10.4f" x y)
   in
   String.concat "\n" (header :: separator :: rows)
 
