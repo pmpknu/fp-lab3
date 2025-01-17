@@ -26,14 +26,14 @@ let usage_msg = "interpolate -step <float step> [-algo <string algo>]"
 let () =
   Arg.parse speclist (fun _ -> ()) usage_msg;
 
-  print_endline "Введите начальные точки в формате x,y:";
+  print_endline "Initial points as <x>,<y>:";
   try
     loop !step !algo
   with
   | Failure msg ->
-      Printf.printf "Ошибка: %s\n" msg;
+      Printf.printf "Error: %s\n" msg;
       exit 1
   | Sys.Break ->
-      print_endline "Программа остановлена пользователем.";
+      print_endline "Program stopped by a user";
       exit 0
 
