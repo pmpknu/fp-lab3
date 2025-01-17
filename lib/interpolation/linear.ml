@@ -14,9 +14,7 @@ let linear_interpolation (step : float) (points : point list) : point list =
 
 let%expect_test "linear interpolation" =
   let points = [ (1.57, 1.); (3.142, 0.) ] in
-  let interpolated =
-    linear_interpolation 1. points
-  in
+  let interpolated = linear_interpolation 1. points in
   List.iter (fun (x, y) -> Printf.printf "(%f, %f)\n" x y) interpolated;
   [%expect
     {|
@@ -26,9 +24,7 @@ let%expect_test "linear interpolation" =
 
 let%expect_test "linear interpolation" =
   let points = [ (4.712, -1.); (12.568, 0.) ] in
-  let interpolated =
-    linear_interpolation 1. points
-  in
+  let interpolated = linear_interpolation 1. points in
   List.iter (fun (x, y) -> Printf.printf "(%f, %f)\n" x y) interpolated;
   [%expect
     {|
