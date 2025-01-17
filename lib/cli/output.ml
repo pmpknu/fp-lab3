@@ -10,7 +10,11 @@ let string_of_points (points : point list) : string =
 
 let%test "string_of_points" =
   let points = [ (1.57, 1.); (3.142, 0.) ] in
-  string_of_points points = "1.57 3.142\n1. 0."
+  string_of_points points
+  = "x          | y         \n\
+     -----------------------\n\
+     1.5700     | 1.0000    \n\
+     3.1420     | 0.0000    "
 
 let string_of_algo (algo : algorithm) : string =
   match algo with
