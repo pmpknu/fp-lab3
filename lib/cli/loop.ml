@@ -26,6 +26,6 @@ let loop (step : float) (algo : algorithm) =
         execute_interpolate algo linear_interpolation step points);
 
     let new_point = read_point () in
-    looprec (points @ [ new_point ]))
+    looprec (List.tl points @ [ new_point ]))
   in
   looprec points
