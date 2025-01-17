@@ -14,7 +14,7 @@ let loop (step : float) (algo : algorithm) =
   let points = [ point1; point2 ] in
 
   let rec looprec (points : point list) =
-    match algo with
+    ((match algo with
     | Both ->
         execute_interpolate Linear linear_interpolation step points;
         if List.length points > 3 then
@@ -23,9 +23,9 @@ let loop (step : float) (algo : algorithm) =
         if List.length points > 3 then
           execute_interpolate algo lagrange_interpolation step points
     | Linear ->
-        execute_interpolate algo linear_interpolation step points;
+        execute_interpolate algo linear_interpolation step points);
 
-        let new_point = read_point () in
-        looprec (points @ [ new_point ])
+    let new_point = read_point () in
+    looprec (points @ [ new_point ]))
   in
   looprec points
