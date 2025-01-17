@@ -1,4 +1,5 @@
 type point = float * float
+type algorithm = Lagrange | Linear | Both
 
 let generate_x_range (step : float) (start : point) (target : point) :
     float list =
@@ -18,3 +19,8 @@ let%expect_test "generate_x_range" =
     1.570000
     2.570000
     3.570000 |}]
+
+let get_last_two lst =
+  match List.rev lst with
+  | x1 :: x2 :: _ -> (x2, x1)
+  | _ -> failwith "there should be at least two elements in the list"

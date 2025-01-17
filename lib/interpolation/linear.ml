@@ -1,7 +1,7 @@
 open Utils
 
-let linear_interpolation (step : float) (start : point) (target : point) :
-    point list =
+let linear_interpolation (step : float) (points : point list) : point list =
+  let start, target = get_last_two points in
   let x1, y1 = start in
   let x2, y2 = target in
   let slope = (y2 -. y1) /. (x2 -. x1) in
@@ -15,7 +15,7 @@ let linear_interpolation (step : float) (start : point) (target : point) :
 let%expect_test "linear interpolation" =
   let points = [ (1.57, 1.); (3.142, 0.) ] in
   let interpolated =
-    linear_interpolation 1. (List.hd points) (List.nth points 1)
+    linear_interpolation 1. points
   in
   List.iter (fun (x, y) -> Printf.printf "(%f, %f)\n" x y) interpolated;
   [%expect
@@ -27,7 +27,7 @@ let%expect_test "linear interpolation" =
 let%expect_test "linear interpolation" =
   let points = [ (4.712, -1.); (12.568, 0.) ] in
   let interpolated =
-    linear_interpolation 1. (List.hd points) (List.nth points 1)
+    linear_interpolation 1. points
   in
   List.iter (fun (x, y) -> Printf.printf "(%f, %f)\n" x y) interpolated;
   [%expect
