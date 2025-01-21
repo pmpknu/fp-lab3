@@ -25,6 +25,11 @@ let loop (step : float) (algo : algorithm) =
     | Linear -> execute_interpolate algo linear_interpolation step points);
 
     let new_point = read_point () in
-    looprec (List.tl points @ [ new_point ])
+    looprec (
+      if List.length points > 3 then
+        List.tl points @ [ new_point ]
+      else 
+        points @ [ new_point ]
+      )
   in
   looprec points
