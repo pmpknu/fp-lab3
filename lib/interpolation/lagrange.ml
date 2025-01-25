@@ -18,14 +18,14 @@ let lagrange_polynomial points x =
     0.0
     (List.init n (fun i -> i))
 
-let lagrange_interpolation (step : float) (points : point list) =
+let lagrange_interpolation (step : float) (points : point list) (istart : point) =
   let interpolate = lagrange_polynomial points in
-  let xs = generate_x_range step (List.hd points) (List.hd (List.rev points)) in
+  let xs = generate_x_range step (istart) (List.hd (List.rev points)) in
   List.map (fun x -> (x, interpolate x)) xs
 
 let%expect_test "lagrange_interpolation" =
   let points = [ (1.57, 1.); (3.142, 0.) ] in
-  let interpolated = lagrange_interpolation 1. points in
+  let interpolated = lagrange_interpolation 1. points  (1.57, 1.) in
   List.iter (fun (x, y) -> Printf.printf "%f %f\n" x y) interpolated;
   [%expect
     {|
@@ -35,7 +35,7 @@ let%expect_test "lagrange_interpolation" =
 
 let%expect_test "lagrange_interpolation" =
   let points = [ (0.0, 0.0); (1.571, 1.0); (3.142, 0.0); (4.712, -1.0) ] in
-  let interpolated = lagrange_interpolation 1.0 points in
+  let interpolated = lagrange_interpolation 1.0 points (0.0, 0.0) in
   List.iter (fun (x, y) -> Printf.printf "%f %f\n" x y) interpolated;
   [%expect
     {|

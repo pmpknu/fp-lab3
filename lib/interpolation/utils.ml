@@ -24,3 +24,8 @@ let get_last_two lst =
   match List.rev lst with
   | x1 :: x2 :: _ -> (x2, x1)
   | _ -> failwith "there should be at least two elements in the list"
+
+let get_last lst =
+  match List.rev lst with
+  | x :: _ -> x
+  | _ -> failwith "there should be at least one element in the list"
