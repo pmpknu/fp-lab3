@@ -7,7 +7,7 @@ open Output
 let execute_interpolate algo interpolation step points start =
   print_endline (string_of_algo algo);
   let interpolated_points = interpolation step points start in
-  print_endline (string_of_points interpolated_points);
+  print_endline (string_of_points (List.rev (List.tl (List.rev interpolated_points))));
   get_last interpolated_points
 
 let loop (step : float) (algo : algorithm) =
